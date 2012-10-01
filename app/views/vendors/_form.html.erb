@@ -1,0 +1,154 @@
+<%= form_for @vendor, :html => { :class => 'form-horizontal' } do |f| %>
+  <% if @vendor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vendor.errors.count, "error") %> prohibited this vendor from being saved:</h2>
+
+      <ul>
+      <% @vendor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="row">
+    <div class="span5">
+      <div class="control-group">
+        <%= f.label :name, :class => 'control-label' %>
+            <div class="controls">
+              <%= f.text_field :name, :class => 'text_field' %>
+            </div>
+      </div><!-- /control group  -->
+      <div class="control-group">
+      <%= f.label 'Description', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_area :vendordescription, :class => 'text_area_medium' %>
+        </div>
+      </div><!-- /control group  -->
+    </div><!-- /span5  -->
+
+    <div class="span5">
+      <div class="control-group">
+        <%= f.label 'Website', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :url, :class => 'text_field', :placeholder => 'http://' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label 'Facebook', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :vfacebook, :class => 'text_field', :placeholder => 'http://' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label 'Twitter', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :vtwitter, :class => 'text_field', :placeholder => 'http://' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label 'LinkedIn', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :vlinkedin, :class => 'text_field', :placeholder => 'http://' %>
+        </div>
+      </div>
+    </div> <!--</span5> -->
+  </div><!-- /row  -->
+
+<div class="row">
+    <div class="span5">
+      <div class="control-group">
+        <%= f.label 'Main address', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :address1, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.text_field :address2, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :city, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :city, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :state, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :state, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :zip, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :zip, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label 'Country', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :country, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :phone, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :phone, :class => 'text_field' %>
+        </div>
+      </div>
+    </div><!--</span5> -->
+
+    <div class="span5">
+      <div class="control-group">
+        <%= f.label 'Billing address', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :pmtaddress, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.text_field :pmtaddress1, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label 'City', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :pmtcity, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label 'State', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :pmtstate, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label 'ZIP', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :pmtzip, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label 'Country', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :pmtcountry, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label 'Billing Phone', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :pmtphone, :class => 'text_field' %>
+        </div>
+      </div>
+
+    </div><!--</span5> -->
+  </div><!--</row> -->
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

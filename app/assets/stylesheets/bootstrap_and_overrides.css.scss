@@ -1,3 +1,31 @@
 @import "bootstrap";
-body { padding-top: 60px; }
+body { padding-top: 10px; }
 @import "bootstrap-responsive";
+
+.simple_breadcrumb {
+    margin: 0 0 18px;
+    padding: 7px 10px;
+}
+
+.simple_breadcrumb li {
+    display: inline-block;
+    padding: 0 14px 0 0;
+}
+
+.simple_breadcrumb a {
+    color: #289860;
+}
+
+.simple_breadcrumb a:hover {
+    color: #666666;
+    text-decoration: underline;
+}
+
+.text_area_medium {
+   height: 130px;
+}
+
+.footer {
+    margin: 10px 0 0 0;
+    padding: 10px;
+}

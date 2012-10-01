@@ -10,26 +10,25 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container">
-          <%= render 'layouts/navigation' %>
-        </div>
-      </nav>
+    <header>
+      <div class="container">
+        <%= render 'layouts/navigation' %>
+      </div>
     </header>
     <div id="main" role="main">
       <div class="container">
-        <div class="content">
-           <div class="row">
-            <div class="span12">
+        <div class="row">
+          <div class="span12">
+            <div class="content">
               <%= render 'layouts/messages' %>
-
               <%= yield %>
             </div>
           </div>
-          <footer>
-          </footer>
         </div>
+
+        <footer>
+          <%= render 'layouts/footer' %>
+        </footer>
       </div> <!--! end of .container -->
     </div> <!--! end of #main -->
   </body>

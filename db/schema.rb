@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120927025609) do
+ActiveRecord::Schema.define(:version => 20120930171330) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -49,5 +49,31 @@ ActiveRecord::Schema.define(:version => 20120927025609) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "vendors", :force => true do |t|
+    t.string   "name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "url"
+    t.text     "vendordescription"
+    t.string   "pmtaddress1"
+    t.string   "pmtaddress"
+    t.string   "pmtcity"
+    t.string   "pmtstate"
+    t.string   "pmtzip"
+    t.string   "pmtcountry"
+    t.string   "pmtphone"
+    t.string   "vemail"
+    t.string   "vfacebook"
+    t.string   "vtwitter"
+    t.string   "vlinkedin"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
 end

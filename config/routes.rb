@@ -1,4 +1,6 @@
 Mindioso::Application.routes.draw do
+  resources :vendors
+
   authenticated :user do
     root :to => 'home#index'
   end
