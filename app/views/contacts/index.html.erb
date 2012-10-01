@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h1>Contacts</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Contact Name</th>
+      <th>Company</th>
+      <th>Phone</th>
+      <th>Location</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+     <% @contacts.each do |contact| %>
+      <tr>
+       <td>gravatar</td>
+       <td><%= link_to (contact.first_name + " " + contact.last_name), contact_path(contact) %></td>
+       <td><%= link_to (contact.vendor.name), vendor_path(contact.vendor) %></td>
+       <td><%= contact.phone %></td>
+       <td><%= contact.city %>, <%= contact.state %></td>
+       <td>
+          <%= link_to image_tag('facebook_16.png', :border=>0), contact.facebook if contact.facebook.present? %>
+          <%= link_to image_tag('twitter_16.png', :border=>0), contact.twitter if contact.facebook.present? %>
+          <%= link_to image_tag('linkedin_16.png', :border=>0), contact.linkedin if contact.facebook.present? %>
+       </td>
+       <td>
+        <%= link_to image_tag('icon_edit.png', :border => 0), edit_contact_path(contact) %>
+        <%= link_to image_tag('icon_delete.png', :border => 0),
+            contact_path(contact), :method => 'delete', :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))%>
+       </td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Contact', new_contact_path %>

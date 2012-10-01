@@ -1,4 +1,6 @@
 Mindioso::Application.routes.draw do
+  resources :contacts
+
   resources :vendors
 
   authenticated :user do
