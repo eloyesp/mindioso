@@ -1,0 +1,57 @@
+<div class="page-header">
+  <h1>Invoice</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>Date issued</strong></dt>
+  <dd><%= @invoice.issued %></dd>
+
+  <dt><strong>Date due</strong></dt>
+  <dd><%= @invoice.due %></dd>
+
+  <dt><strong>Vendor</dt>
+  <dd><%= link_to (invoice.vendor.name), vendor_path(invoice.vendor) %></dd>
+
+  <dt><strong>Memo</strong></dt>
+  <dd><%= @invoice.memo %></dd>
+
+  <dt><strong>Payment status</strong></dt>
+  <dd><% if @invoice.paid.active == true %>
+      <%= 'Paid' %>
+  <% else %>
+      <%= 'Payment pending' %>
+  <% end %>
+  </dd>
+
+  <dt><strong>Amount due</strong></dt>
+  <dd>Amount due</dd>
+
+
+
+</dl>
+
+
+
+
+
+
+
+<p>
+  <b>Paid:</b>
+  <%= @invoice.paid %>
+</p>
+
+<p>
+  <b>Vendor:</b>
+  <%= @invoice.vendor_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to t('Delete', :default => t("helpers.links.destroy")),
+            invoice_path(@invoice),
+            :method => 'delete',
+            :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+            %> |
+<%= link_to 'Back', invoices_path %>
+

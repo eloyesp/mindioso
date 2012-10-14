@@ -1,0 +1,106 @@
+
+<div class="row">
+  <%= debug @post %>
+
+
+<%= form_for(@invoice, :html => { :class => 'form-horizontal' }) do |f| %>
+
+  <% if @invoice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+      <ul>
+      <% @invoice.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="span6">
+    <label>Vendor
+      <%= f.text_field :vendor_id, :class => 'input-medium' %>
+    </label>
+
+    Billing address here
+  </div>
+
+  <div class="span3">
+    <div class="control-group">
+      <%= f.label "Invoice #", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :identifier, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+     <%= f.label 'Date issued', :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :issued, :class => 'input-small', :placeholder => 'Datepicker' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label 'Date due', :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :due, :class => 'input-small', :placeholder => 'Datepicker' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Amount", :class => 'control-label' %>
+        <div class="controls">
+          $1500.00
+        </div>
+    </div>
+    <div class="control-group">
+      <%= f.label "Paid?", :class => 'control-label' %>
+       <div class="controls">
+         <%= f.check_box :paid, :class => 'checkbox' %>
+       </div>
+    </div>
+  </div>
+
+</div>
+      <hr>
+
+<div class=row>
+  <div class="span12">
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Campaign</th>
+              <th>Category</th>
+              <th>Item</th>
+              <th>Memo</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+
+              <td>Campaign</td>
+              <td>Category</td>
+              <td>Item</td>
+              <td>memo</td>
+              <td>unit price</td>
+              <td>quantity</td>
+              <td>calculate</td>
+
+            </tr>
+          </tbody>
+        </table>
+
+
+  </div>
+</div>
+
+<div class="actions"> <br />
+<%= f.submit %>
+</div>
+
+<% end %>

@@ -1,4 +1,8 @@
 Mindioso::Application.routes.draw do
+  resources :invoices
+
+  resources :transactions
+
   resources :contacts
 
   resources :vendors

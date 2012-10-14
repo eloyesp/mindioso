@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121001013255) do
+ActiveRecord::Schema.define(:version => 20121003010136) do
 
   create_table "contacts", :force => true do |t|
     t.string   "first_name"
@@ -33,6 +33,21 @@ ActiveRecord::Schema.define(:version => 20121001013255) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "invoices", :force => true do |t|
+    t.string   "memo"
+    t.date     "issued"
+    t.date     "due"
+    t.boolean  "paid"
+    t.integer  "vendor_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "identifier"
+    t.decimal  "subtotal"
+    t.decimal  "taxrate"
+    t.decimal  "tax"
+    t.decimal  "total"
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -43,6 +58,18 @@ ActiveRecord::Schema.define(:version => 20121001013255) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "transactions", :force => true do |t|
+    t.string   "memo"
+    t.decimal  "amount"
+    t.integer  "category_id"
+    t.integer  "campaign_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "item"
+    t.decimal  "quantity"
+    t.decimal  "unitprice"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

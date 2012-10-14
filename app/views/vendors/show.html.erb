@@ -10,35 +10,7 @@
 <div class="row">
   <div class="span3">
     <p><%= image_tag('tmp_whatsfun_screenshot.jpg', :border => 0) %></p>
-  </div>
 
-  <div class="span5">
-    <p><strong>Description</strong></p>
-    <p><%= @vendor.vendordescription %></p>
-    <hr>
-    <p><strong><%= image_tag('icon_phone_16.png', :border => 0) %> <%= @vendor.phone %></strong>
-      <% unless @vendor.url.blank?
-           link_to image_tag('icon_web_16.png', :border => 0), @vendor.url, html_options = { :target => 'blank' }
-         end %>
-
-      <% unless @vendor.vfacebook.blank?
-           link_to image_tag('facebook_16.png', :border => 0), @vendor.vfacebook, html_options = { :target => 'blank' }
-         end %>
-
-      <% unless @vendor.vtwitter.blank?
-           link_to image_tag('twitter_16.png', :border => 0), @vendor.vtwitter, html_options = { :target => 'blank' }
-         end %>
-
-      <% unless @vendor.vlinkedin.blank?
-           link_to image_tag('linkedin_16.png', :border => 0), @vendor.vlinkedin, html_options = { :target => 'blank' }
-         end %>
-    </p>
-    <hr>
-  </div>
-</div>
-
-<div class="row">
-  <div class="span3">
     <div class="well">
         <p><strong>Main Address</strong></p>
         <p><% unless @vendor.address1.blank? %>
@@ -75,8 +47,65 @@
     </div>
   </div>
 
-  <div class="span9">
+  <div class="span8">
+    <p><%= @vendor.vendordescription %></p>
+    <hr>
+    <p><strong><%= image_tag('icon_phone_16.png', :border => 0) %> <%= @vendor.phone %></strong>
+      <% unless @vendor.url.blank?
+           link_to image_tag('icon_web_16.png', :border => 0), @vendor.url, html_options = { :target => 'blank' }
+         end %>
+
+      <% unless @vendor.vfacebook.blank?
+           link_to image_tag('facebook_16.png', :border => 0), @vendor.vfacebook, html_options = { :target => 'blank' }
+         end %>
+
+      <% unless @vendor.vtwitter.blank?
+           link_to image_tag('twitter_16.png', :border => 0), @vendor.vtwitter, html_options = { :target => 'blank' }
+         end %>
+
+      <% unless @vendor.vlinkedin.blank?
+           link_to image_tag('linkedin_16.png', :border => 0), @vendor.vlinkedin, html_options = { :target => 'blank' }
+         end %>
+    </p>
+    <hr>
+
+    <h4>Contacts</h4>
+     <table class="table table-striped">
+       <thead>
+        <tr>
+          <th>Contact Name</th>
+          <th>Phone</th>
+          <th>Location</th>
+          <th>&nbsp;</th>
+          <th>&nbsp;</th>
+        </tr>
+       </thead>
+
+       <tbody>
+         <% @vendor.contacts.each do |contact| %>
+          <tr>
+             <td><%= link_to (contact.first_name + " " + contact.last_name), contact_path(contact) %></td>
+             <td><%= contact.phone %></td>
+             <td><%= contact.city %>, <%= contact.state %></td>
+             <td>
+                <%= link_to image_tag('facebook_16.png', :border=>0), contact.facebook if contact.facebook.present? %>
+                <%= link_to image_tag('twitter_16.png', :border=>0), contact.twitter if contact.facebook.present? %>
+                <%= link_to image_tag('linkedin_16.png', :border=>0), contact.linkedin if contact.facebook.present? %>
+             </td>
+             <td>
+              <%= link_to image_tag('icon_edit.png', :border => 0), edit_contact_path(contact) %>
+              <%= link_to image_tag('icon_delete.png', :border => 0),
+                  contact_path(contact), :method => 'delete', :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))%>
+            </td>
+          </tr>
+         <% end %>
+       </tbody>
+     </table>
   </div>
 </div>
+
+
+
+
 <%= link_to 'Edit', edit_vendor_path(@vendor) %> |
 <%= link_to 'Back', vendors_path %>

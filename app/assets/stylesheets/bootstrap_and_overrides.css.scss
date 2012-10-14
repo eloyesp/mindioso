@@ -2,6 +2,16 @@
 body { padding-top: 10px; }
 @import "bootstrap-responsive";
 
+.container a:hover {
+    background-color: transparent;
+}
+
+.navbar .nav > li > a:focus, .navbar .nav > li > a:hover {
+  background-color: transparent;
+  color: #333333;
+  text-decoration: underline;
+}
+
 .simple_breadcrumb {
     margin: 0 0 18px;
     padding: 7px 10px;
@@ -28,4 +38,47 @@ body { padding-top: 10px; }
 .footer {
     margin: 10px 0 0 0;
     padding: 10px;
+}
+
+
+#ui-datepicker-div
+{
+    .ui-datepicker-header
+    {
+        background-image: none;
+        background-color: #0088cc; color: #fff;
+
+        .ui-datepicker-prev span.ui-icon
+        {
+            background-image: url("/assets/glyphicons-halflings-white.png");
+            background-position: -432px -72px;
+        }
+        .ui-datepicker-prev-hover { background-image: none; background-color: white; }
+        .ui-datepicker-prev-hover span.ui-icon
+        {
+            background-image: url("/assets/glyphicons-halflings.png");
+            background-position: -432px -72px;
+        }
+
+        .ui-datepicker-next span.ui-icon
+        {
+            background-image: url("/assets/glyphicons-halflings-white.png");
+            background-position: -456px -72px;
+        }
+        .ui-datepicker-next-hover { background-image: none; background-color: white; }
+        .ui-datepicker-next-hover span.ui-icon
+        {
+            background-image: url("/assets/glyphicons-halflings.png");
+            background-position: -456px -72px;
+        }
+    }
+
+    .ui-datepicker-current-day a
+    {
+        background-color: #0088cc;
+        background-image: none;
+        color: white;
+    }
+    .ui-datepicker-calendar td a { background-image: none; }
+    .ui-datepicker-calendar td a.ui-state-hover { background-color: #0088cc; color: white; }
 }
