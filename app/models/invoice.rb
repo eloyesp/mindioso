@@ -1,5 +1,6 @@
 class Invoice < ActiveRecord::Base
-  attr_accessible :due, :issued, :memo, :paid, :vendor_id, :transactions_attributes
+  attr_accessible :due, :issued, :memo, :paid, :vendor_id, :identifier,
+                  :subtotal, :taxrate, :tax, :total, :transactions_attributes
 
   belongs_to :vendor
   has_many :transactions

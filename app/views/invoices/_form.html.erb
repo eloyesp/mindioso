@@ -1,7 +1,5 @@
 
 <div class="row">
-  <%= debug @post %>
-
 
 <%= form_for(@invoice, :html => { :class => 'form-horizontal' }) do |f| %>
 
@@ -62,17 +60,17 @@
   </div>
 
 </div>
-      <hr>
+<hr>
 
 <div class=row>
-  <div class="span12">
+  <div class="span11">
 
         <table class="table">
           <thead>
             <tr>
+              <th>Item</th>
               <th>Campaign</th>
               <th>Category</th>
-              <th>Item</th>
               <th>Memo</th>
               <th>Unit Price</th>
               <th>Quantity</th>
@@ -81,17 +79,17 @@
           </thead>
 
           <tbody>
+          <%= f.fields_for :transactions do |builder| %>
             <tr>
-
+              <td><%= builder.text_field :item, :class => 'input-mini' %></td>
               <td>Campaign</td>
-              <td>Category</td>
-              <td>Item</td>
-              <td>memo</td>
-              <td>unit price</td>
-              <td>quantity</td>
+              <td><%= builder.text_field :category_id, :class => 'input-mini' %></td>
+              <td><%= builder.text_field :memo, :class => 'input-mini' %></td>
+              <td><%= builder.text_field :unitprice, :class => 'input-mini' %></td>
+              <td><%= builder.text_field :quantity, :class => 'input-mini' %></td>
               <td>calculate</td>
-
             </tr>
+          <% end %>
           </tbody>
         </table>
 
