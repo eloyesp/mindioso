@@ -18,7 +18,7 @@
   <tbody>
      <% @contacts.each do |contact| %>
       <tr>
-       <td>gravatar</td>
+       <td><%= gravatar_for contact %></td>
        <td><%= link_to (contact.first_name + " " + contact.last_name), contact_path(contact) %></td>
        <td><%= link_to (contact.vendor.name), vendor_path(contact.vendor) %></td>
        <td><%= contact.phone %></td>
