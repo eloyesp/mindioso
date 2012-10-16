@@ -16,11 +16,20 @@
 
 
   <div class="span6">
-    <label>Vendor
-      <%= f.text_field :vendor_id, :class => 'input-medium' %>
-    </label>
 
-    Billing address here
+    <div class="control-group">
+          <%= f.label "Vendor", :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :vendor_id, :class => 'text_field' %>
+          </div>
+        </div>
+    <p class="offset2">Billing address here</p>
+    <div class="control-group">
+          <%= f.label "Memo", :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_area :memo, :class => 'text_field', :rows => 4 %>
+          </div>
+        </div>
   </div>
 
   <div class="span3">
@@ -64,36 +73,33 @@
 
 <div class=row>
   <div class="span11">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Campaign</th>
+          <th>Category</th>
+          <th>Memo</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
 
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Campaign</th>
-              <th>Category</th>
-              <th>Memo</th>
-              <th>Unit Price</th>
-              <th>Quantity</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-
-          <tbody>
-          <%= f.fields_for :transactions do |builder| %>
-            <tr>
-              <td><%= builder.text_field :item, :class => 'input-mini' %></td>
-              <td>Campaign</td>
-              <td><%= builder.text_field :category_id, :class => 'input-mini' %></td>
-              <td><%= builder.text_field :memo, :class => 'input-mini' %></td>
-              <td><%= builder.text_field :unitprice, :class => 'input-mini' %></td>
-              <td><%= builder.text_field :quantity, :class => 'input-mini' %></td>
-              <td>calculate</td>
-            </tr>
-          <% end %>
-          </tbody>
-        </table>
-
-
+      <tbody>
+      <%= f.fields_for :transactions do |builder| %>
+        <tr>
+          <td><%= builder.text_field :item, :class => 'input-mini' %></td>
+          <td>Campaign</td>
+          <td><%= builder.text_field :category_id, :class => 'input-mini' %></td>
+          <td><%= builder.text_field :memo, :class => 'input-mini' %></td>
+          <td><%= builder.text_field :unitprice, :class => 'input-mini' %></td>
+          <td><%= builder.text_field :quantity, :class => 'input-mini' %></td>
+          <td>calculate</td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 

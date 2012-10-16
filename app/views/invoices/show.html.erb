@@ -1,52 +1,63 @@
-<div class="page-header">
+<div class="page-header" xmlns="http://www.w3.org/1999/html">
   <h1>Invoice</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong>Date issued</strong></dt>
-  <dd><%= @invoice.issued %></dd>
+<div class="row">
+  <div class="span6">
+    <p><strong><%= link_to (@invoice.vendor.name), vendor_path(@invoice.vendor) %></strong></p>
+    <p>billing address here</p>
+  </div>
+  <div class="span3">
+    <p><strong>Invoice #</strong> <%= @invoice.id %></p>
+    <p><strong>Date issued</strong> <%= @invoice.issued %></p>
+    <p><strong>Date due</strong> <%= @invoice.due %></p>
+    <p><strong>Amount due</strong><%= @invoice.total %></p>
+    <p><strong>Payment Status</strong>
+      <% if @invoice.paid == true %>
+        <%= 'Paid' %>
+      <% else %>
+        <%= 'Payment pending' %>
+      <% end %>
+    </p>
+  </div>
+</div>
 
-  <dt><strong>Date due</strong></dt>
-  <dd><%= @invoice.due %></dd>
+<hr>
 
-  <dt><strong>Vendor</dt>
-  <dd><%= link_to (@invoice.vendor.name), vendor_path(@invoice.vendor) %></dd>
+<div class=row>
+  <div class="span11">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Campaign</th>
+          <th>Category</th>
+          <th>Memo</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
 
-  <dt><strong>Memo</strong></dt>
-  <dd><%= @invoice.memo %></dd>
+      <tbody>
+      <% for transaction in @invoice.transactions %>
+        <tr>
+          <td><%= h transaction.item %></td>
+          <td>Campaign</td>
+          <td><%= h transaction.category_id %></td>
+          <td><%= h transaction.memo %></td>
+          <td><%= h transaction.unitprice %></td>
+          <td><%= h transaction.quantity %></td>
+          <td><%= h transaction.amount %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-  <dt><strong>Payment status</strong></dt>
-  <dd><% if @invoice.paid == true %>
-      <%= 'Paid' %>
-  <% else %>
-      <%= 'Payment pending' %>
-  <% end %>
-  </dd>
 
-  <dt><strong>Amount due</strong></dt>
-  <dd>Amount due</dd>
 
-</dl>
-
-<p>
-  <b>Paid:</b>
-  <%= @invoice.paid %>
-</p>
-
-<p>
-  <b>Vendor:</b>
-  <%= @invoice.vendor_id %>
-</p>
-
-  <% for transaction in @invoice.transactions %>
-  <li><%= h transaction.item %></li>
-    <li>campaign</li>
-    <li><%= h transaction.category_id %></li>
-    <li><%= h transaction.memo %></li>
-    <li><%= h transaction.unitprice %></li>
-    <li><%= h transaction.quantity %></li>
-
-  <% end %>
 
 
 
