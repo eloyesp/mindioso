@@ -1,32 +1,28 @@
-<div class="page-header">
-  <h1>Sign in</h1>
-</div>
+<div class="login">
+  <p class="register">Not a member? <%= link_to "Sign up", new_registration_path(resource_name) %></p>
+  <h1> Sign in to Mindioso</h1>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <div>
+			<label>Email</label>
+		  <%= f.email_field :email %>
+		</div>
+
+		<div>
+			<label for="login_password">Password</label>
+			<%= f.password_field :password %>
+		</div>
+
+    <p class="forgot"><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
 
 
-    <div class="control-group">
-      <%= f.label :email %>
-      <div class="controls">
-        <%= f.email_field :email %>
-      </div>
-    </div>
+    <div class="submit">
+        <button type="submit">Log in</button>
 
-    <div class="control-group">
-      <%= f.label :password %>
-      <div class="controls">
-        <%= f.password_field :password %>
-      </div>
-    </div>
-
-    <% if devise_mapping.rememberable? -%>
-      <label class="checkbox">
+      <% if devise_mapping.rememberable? -%>
         <%= f.check_box :remember_me %> Remember me
-      </label> <br />
-    <% end -%>
+      <% end -%>
+    </div>
+  <% end %>
 
-
-<div class="actions"><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

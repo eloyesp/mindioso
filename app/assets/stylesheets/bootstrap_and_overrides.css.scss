@@ -82,3 +82,96 @@ body { padding-top: 10px; }
     .ui-datepicker-calendar td a { background-image: none; }
     .ui-datepicker-calendar td a.ui-state-hover { background-color: #0088cc; color: white; }
 }
+
+
+.login {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 8px solid #EEEEEE;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 10px #4E707C;
+    margin: 5em auto;
+    position: relative;
+    text-align: left;
+    width: 500px;
+}
+
+.login h1 {
+    background: none repeat scroll 0 0 #21A262;
+    border-bottom: 1px solid #1C8C55;
+    color: #FFFFFF;
+    font-size: 22px;
+    margin: 0 0 1.5em;
+    padding: 10px 20px;
+    text-shadow: 0 1px 0 #1C8C55;
+}
+
+.login .register {
+    float: left;
+    line-height: 30px;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: -40px;
+}
+
+.login label {
+    float: left;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+.login div {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0.5em 25px;
+    padding: 4px;
+    position: relative;
+    text-align: right;
+}
+
+.login div.submit text {
+    display: inline;
+    float: none;
+    font-size: 11px;
+}
+
+.login div.submit{background:none;margin:1em 25px;text-align:left;}
+
+.login label {
+    float: left;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+.login .field {
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 0 5px #CCCCCC inset;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 280px;
+}
+
+.login .forgot {
+    text-align: right;
+    padding-right: 22px;
+}
+
+.login button {
+    background: none repeat scroll 0 0 #21A262;
+    border: 0 none;
+    border-radius: 50px 50px 50px 50px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 #1C8C55;
+    margin-right: 25px;
+}
+
+.login input[type="checkbox"] {
+  margin: -3px 8px 0 0;
+}
