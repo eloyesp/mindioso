@@ -1,4 +1,14 @@
 Mindioso::Application.routes.draw do
+  get "pages/about"
+
+  get "pages/contact"
+
+  get "pages/help"
+
+  get "pages/terms"
+
+  get "pages/privacy"
+
   resources :invoices
 
   resources :transactions
