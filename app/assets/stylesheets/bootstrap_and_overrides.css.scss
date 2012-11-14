@@ -175,3 +175,36 @@ body { padding-top: 10px; }
 .login input[type="checkbox"] {
   margin: -3px 8px 0 0;
 }
+
+.highlightbox {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 8px solid #EEEEEE;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 10px #4E707C;
+    margin: 2em auto;
+    text-align: left;
+}
+
+.highlightbox h1 {
+    background: none repeat scroll 0 0 #21A262;
+    border-bottom: 1px solid #1C8C55;
+    color: #FFFFFF;
+    font-size: 22px;
+    margin: 0 0 .5em;
+    padding: 10px 20px;
+    text-shadow: 0 1px 0 #1C8C55;
+}
+
+.highlightbox .uppernote {
+    float: left;
+    line-height: 30px;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: -40px;
+}
+
+.highlightbox .boxcontent {
+   padding: .5em 1em;
+
+}

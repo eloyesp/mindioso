@@ -1,7 +1,7 @@
 Mindioso::Application.routes.draw do
 
   get "about", to: 'pages#'
-  get "contact", to: 'pages#'
+  get "contactus", to: 'pages#'
   get "help", to: 'pages#'
   get "terms", to: 'pages#'
   get "privacy", to: 'pages#'

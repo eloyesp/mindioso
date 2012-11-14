@@ -1,0 +1,70 @@
+<div class="page-header" xmlns="http://www.w3.org/1999/html">
+  <h1>Invoice</h1>
+</div>
+
+<div class="row">
+  <div class="span6">
+    <p><strong><%= link_to (@invoice.vendor.name), vendor_path(@invoice.vendor) %></strong></p>
+    <p>billing address here</p>
+  </div>
+  <div class="span3">
+    <p><strong>Invoice #</strong> <%= @invoice.id %></p>
+    <p><strong>Date issued</strong> <%= @invoice.issued %></p>
+    <p><strong>Date due</strong> <%= @invoice.due %></p>
+    <p><strong>Amount due</strong><%= @invoice.total %></p>
+    <p><strong>Payment Status</strong>
+      <% if @invoice.paid == true %>
+        <%= 'Paid' %>
+      <% else %>
+        <%= 'Payment pending' %>
+      <% end %>
+    </p>
+  </div>
+</div>
+
+<hr>
+
+<div class=row>
+  <div class="span11">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Campaign</th>
+          <th>Category</th>
+          <th>Memo</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <% for transaction in @invoice.transactions %>
+        <tr>
+          <td><%= h transaction.item %></td>
+          <td>Campaign</td>
+          <td><%= h transaction.category_id %></td>
+          <td><%= h transaction.memo %></td>
+          <td><%= h transaction.unitprice %></td>
+          <td><%= h transaction.quantity %></td>
+          <td><%= h transaction.amount %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+
+<%= link_to 'Delete', invoice_path(@invoice), :method => 'delete', :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) %> |
+
+<%= link_to 'Back', invoices_path %>
+
